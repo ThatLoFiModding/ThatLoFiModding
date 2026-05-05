@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mods | ThatLoFiModding</title>
+    <style>
+        :root { --bg-color: #e5d9bc; --text-color: #2d3324; }
+        
+        /* Der wichtigste Fix: Verhindert, dass Padding die Breite vergrößert */
+        * { box-sizing: border-box; }
+
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh;
+            overflow-x: hidden; /* Sicherheitshalber: Verhindert seitliches Scrollen */
+        }
+        
+        nav { 
+            margin-top: 30px; 
+            background: var(--text-color); 
+            padding: 12px 40px; 
+            border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            /* Verhindert, dass die Nav bei kleinen Screens zu breit wird */
+            max-width: 90%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a { 
+            color: var(--bg-color); 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin: 5px 20px; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+            letter-spacing: 1px;
+        }
+
+        h1, h3 { font-family: 'Segoe UI', sans-serif; text-align: center; }
+
+        .mod-list { 
+            width: 90%; /* Standardbreite für Mobile */
+            max-width: 800px; /* Maximale Breite für große Bildschirme */
+            margin: 60px 0; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+
+        .mod-card {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--text-color);
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        /* Responsive Anpassung: Auf Handys Bild über Text stapeln */
+        @media (max-width: 600px) {
+            .mod-card { flex-direction: column; text-align: center; }
+            .mod-icon { margin-right: 0; margin-bottom: 20px; }
+            .mod-list { width: 95%; }
+        }
+
+        .mod-card:hover { transform: translateX(5px); background: rgba(255, 255, 255, 0.5); }
+
+        .mod-icon { width: 120px; height: 120px; object-fit: cover; border: 1px solid var(--text-color); margin-right: 25px; flex-shrink: 0; }
+
+        .mod-info { flex-grow: 1; }
+        .mod-info h3 { margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        @media (max-width: 600px) { .mod-info h3 { text-align: center; } }
+        
+        .mod-info p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+
+        .dl-btn { display: inline-block; margin-top: 15px; color: var(--text-color); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--text-color); }
+
+        .coming-soon { opacity: 0.4; filter: grayscale(1); cursor: not-allowed; }
+        .coming-soon:hover { transform: none; }
+
+        footer { 
+            margin-top: auto; 
+            padding: 40px 20px; 
+            font-size: 0.8rem; 
+            letter-spacing: 2px; 
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mods.html">Gallery</a>
+        <a href="about.html">Our Story</a>
+    </nav>
+    
+    <h1 style="margin-top: 50px; letter-spacing: 5px; text-transform: uppercase; padding: 0 20px;">The Collection</h1>
+
+    <div class="mod-list">
+        <div class="mod-card">
+            <img src="RFYicon.png" alt="RFY" class="mod-icon">
+            <div class="mod-info">
+                <h3>Realistic Forage & Yield</h3>
+                <p>Advanced bale physics and weather-based yield degradation.</p>
+                <a href="comingsoon.html" class="dl-btn">VIEW STATUS ></a>
+            </div>
+        </div>
+
+        <div class="mod-card coming-soon">
+            <div style="width: 120px; height: 120px; background: #ccc; margin-right: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 1px solid #999; flex-shrink: 0;">?</div>
+            <div class="mod-info">
+                <h3>Realistic Soil Compaction</h3>
+                <p>The earth never forgets. Every pass leaves a permanent scar on your soil's health.</p>
+                <a href="teaser.html" class="dl-btn">UNDER DEVELOPMENT ></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 THATLOFIMODDING | QUALITY OVER SPEED</footer>
+</body>
+</html>

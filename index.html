@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThatLoFiModding | Home</title>
+    <style>
+        :root {
+            --bg-color: #e5d9bc;
+            --text-color: #2d3324;
+            --accent-color: #5d664a;
+            --card-bg: rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Georgia', serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        nav { 
+            margin-top: 30px; 
+            background: var(--text-color); 
+            padding: 12px 40px; 
+            border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: var(--bg-color); 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #fff; opacity: 0.8; }
+
+        header { text-align: center; padding: 60px 20px; animation: fadeIn 1.5s; }
+        .logo { max-width: 280px; height: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+
+        .hero-container {
+            max-width: 700px;
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 2px;
+            text-align: center;
+            border: 1px solid var(--text-color);
+            position: relative;
+            box-shadow: 15px 15px 0px var(--text-color);
+        }
+
+        h1 { font-size: 2.2rem; margin-top: 0; }
+        .badge { background: #8b4513; color: white; padding: 4px 12px; font-size: 0.7rem; vertical-align: middle; }
+
+        .btn { 
+            display: inline-block; 
+            background-color: var(--text-color); 
+            color: var(--bg-color); 
+            padding: 15px 40px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-top: 25px;
+            border: 1px solid var(--text-color);
+            transition: 0.3s;
+        }
+        .btn:hover { background: transparent; color: var(--text-color); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        footer { margin-top: auto; padding: 40px; font-size: 0.8rem; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mods.html">Gallery</a>
+        <a href="about.html">Our Story</a>
+    </nav>
+    <header>
+        <img src="logo.png" alt="ThatLoFiModding" class="logo">
+    </header>
+    <div class="hero-container">
+        <span class="badge">BETA RELEASE</span>
+        <h1>Realistic Forage & Yield</h1>
+        <p>A ground-breaking LUA script for FS25 that redefines how you handle harvest and storage. Real logic for real farmers.</p>
+        <a href="mods.html" class="btn">DISCOVER MODS</a>
+    </div>
+    <footer>&copy; 2026 THATLOFIMODDING | QUALITY OVER SPEED</footer>
+</body>
+</html>
