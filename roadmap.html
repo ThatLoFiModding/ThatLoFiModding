@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mod Roadmaps | ThatLoFiModding</title>
+    <style>
+        :root {
+            --bg-color: #e5d9bc;
+            --text-color: #2d3324;
+            --accent-color: #5d664a;
+            --card-bg: rgba(255, 255, 255, 0.4);
+            --brown-accent: #8b4513;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Georgia', serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav { 
+            margin-top: 30px; 
+            background: var(--text-color); 
+            padding: 12px 40px; 
+            border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        nav a { 
+            color: var(--bg-color); 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #fff; opacity: 0.8; }
+
+        header { text-align: center; padding: 40px 20px; animation: fadeIn 1.5s; }
+        .logo { max-width: 200px; height: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+
+        .container {
+            max-width: 850px;
+            width: 95%;
+            margin-bottom: 50px;
+            animation: fadeIn 1s;
+        }
+
+        h1 { font-size: 2.2rem; text-align: center; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
+
+        /* Dropdown Style */
+        .mod-dropdown {
+            background: var(--card-bg);
+            border: 1px solid var(--text-color);
+            box-shadow: 15px 15px 0px var(--text-color); /* Dein Standard-Schatten */
+            margin-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .dropdown-trigger {
+            padding: 25px 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--text-color);
+            color: var(--bg-color);
+            transition: 0.3s;
+        }
+
+        .mod-header-info { display: flex; align-items: center; }
+        .mod-thumb { width: 70px; height: 70px; object-fit: cover; border: 1px solid var(--bg-color); margin-right: 25px; }
+        .mod-title { font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        .dropdown-content {
+            display: none;
+            padding: 50px 40px;
+            animation: slideDown 0.4s ease-out;
+            text-align: left;
+        }
+
+        .mod-dropdown.active .dropdown-content { display: block; }
+        .mod-dropdown.active .dropdown-trigger { background: #3d4531; }
+
+        /* Roadmap Timeline (Wie im ersten Entwurf) */
+        .roadmap-timeline {
+            border-left: 3px solid var(--text-color);
+            margin-left: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .roadmap-item {
+            margin-bottom: 45px;
+            position: relative;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -41.5px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--bg-color);
+            border: 3px solid var(--text-color);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .roadmap-item.done::before {
+            background: var(--text-color);
+        }
+
+        .date {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--brown-accent);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .phase-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .status-badge {
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 3px 12px;
+            font-size: 0.7rem;
+            margin-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-planned {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+        }
+
+        p { line-height: 1.6; margin: 0; opacity: 0.9; font-size: 1rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { padding: 40px; font-size: 0.8rem; letter-spacing: 2px; text-align: center; margin-top: auto; }
+
+        @media (max-width: 600px) {
+            .mod-title { font-size: 1.1rem; }
+            .mod-thumb { width: 50px; height: 50px; margin-right: 15px; }
+            .dropdown-content { padding: 30px 20px; }
+            .phase-header { flex-direction: column; align-items: flex-start; }
+            .status-badge { margin-left: 0; margin-top: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mods.html">Gallery</a>
+        <a href="about.html">Our Story</a>
+        <a href="roadmap.html">Roadmaps</a>
+    </nav>
+
+    <header>
+        <img src="logo.png" alt="ThatLoFiModding" class="logo">
+    </header>
+
+    <div class="container">
+        <h1>Project Roadmaps</h1>
+
+        <div class="mod-dropdown">
+            <div class="dropdown-trigger" onclick="toggleDropdown(this)">
+                <div class="mod-header-info">
+                    <img src="RFYicon.png" alt="RFY" class="mod-thumb">
+                    <span class="mod-title">Realistic Forage & Yield</span>
+                </div>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="dropdown-content">
+                <div class="roadmap-timeline">
+                    
+                    <div class="roadmap-item done">
+                        <span class="date">Completed</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">Physics & Logic</h3>
+                            <span class="status-badge">Done</span>
+                        </div>
+                        <p>Core LUA scripts for moisture-based yield degradation and bale rotting physics.</p>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <span class="date">Current Phase</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">UI & Translation</h3>
+                            <span class="status-badge">Ongoing</span>
+                        </div>
+                        <p>Developing the ingame overlay and translating all features into 5+ languages.</p>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <span class="date">June 2026</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">Testing & Optimization</h3>
+                            <span class="status-badge status-planned">Planned</span>
+                        </div>
+                        <p>Stability tests on 4x maps and performance optimization.</p>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <span class="date">June / July 2026</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">Beta Release</h3>
+                            <span class="status-badge status-planned">Planned</span>
+                        </div>
+                        <p>Release for the first twenty members on my Discord Channel</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mod-dropdown">
+            <div class="dropdown-trigger" onclick="toggleDropdown(this)">
+                <div class="mod-header-info">
+                    <div class="mod-thumb" style="background:#8b4513; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size: 0.8rem;">RSC</div>
+                    <span class="mod-title">Realistic Soil Compaction</span>
+                </div>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="dropdown-content">
+                <div class="roadmap-timeline">
+
+                    <div class="roadmap-item">
+                        <span class="date">May 2026</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">Planning</h3>
+                            <span class="status-badge status-planned">Ongoing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-item">
+                        <span class="date">August 2026</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">Architecture Phase</h3>
+                            <span class="status-badge">Planned</span>
+                        </div>
+                        <p>Initial LUA structure for ground deformation and soil pressure calculations.</p>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <span class="date">August 2026</span>
+                        <div class="phase-header">
+                            <h3 class="phase-title">Scripting Core</h3>
+                            <span class="status-badge status-planned">Planned</span>
+                        </div>
+                        <p>Developing the permanent soil impact logic and interaction with ground textures.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" style="text-decoration: none; color: var(--text-color); font-size: 0.8rem; border-bottom: 1px solid var(--text-color); opacity: 0.7;">&lt; BACK TO HOME</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+            const arrow = element.querySelector('.arrow');
+            arrow.innerText = parent.classList.contains('active') ? '▲' : '▼';
+        }
+    </script>
+
+    <footer>&copy; 2026 THATLOFIMODDING | QUALITY OVER SPEED</footer>
+
+</body>
+</html>
