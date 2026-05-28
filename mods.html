@@ -7,7 +7,6 @@
     <style>
         :root { --bg-color: #e5d9bc; --text-color: #2d3324; }
         
-        /* Der wichtigste Fix: Verhindert, dass Padding die Breite vergrößert */
         * { box-sizing: border-box; }
 
         body { 
@@ -19,7 +18,7 @@
             flex-direction: column; 
             align-items: center; 
             min-height: 100vh;
-            overflow-x: hidden; /* Sicherheitshalber: Verhindert seitliches Scrollen */
+            overflow-x: hidden;
         }
         
         nav { 
@@ -28,7 +27,6 @@
             padding: 12px 40px; 
             border-radius: 50px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            /* Verhindert, dass die Nav bei kleinen Screens zu breit wird */
             max-width: 90%;
             display: flex;
             justify-content: center;
@@ -48,8 +46,8 @@
         h1, h3 { font-family: 'Segoe UI', sans-serif; text-align: center; }
 
         .mod-list { 
-            width: 90%; /* Standardbreite für Mobile */
-            max-width: 800px; /* Maximale Breite für große Bildschirme */
+            width: 90%; 
+            max-width: 800px; 
             margin: 60px 0; 
             display: flex; 
             flex-direction: column; 
@@ -66,7 +64,6 @@
             width: 100%;
         }
 
-        /* Responsive Anpassung: Auf Handys Bild über Text stapeln */
         @media (max-width: 600px) {
             .mod-card { flex-direction: column; text-align: center; }
             .mod-icon { margin-right: 0; margin-bottom: 20px; }

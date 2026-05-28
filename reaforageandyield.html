@@ -25,13 +25,37 @@
             padding-bottom: 50px;
         }
 
+        /* Navbar Style */
+        nav { 
+            margin-top: 30px; 
+            background: var(--text-color); 
+            padding: 12px 40px; 
+            border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            max-width: 90%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a { 
+            color: var(--bg-color); 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin: 5px 20px; 
+            text-transform: uppercase; 
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #fff; opacity: 0.8; }
+
         .container {
             border: 1px solid var(--text-color);
             padding: 40px;
             background: var(--card-bg);
             max-width: 800px;
             width: 90%;
-            margin-top: 50px;
+            margin-top: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
@@ -120,8 +144,7 @@
 
         @media (max-width: 600px) {
             .chart-grid { grid-template-columns: 1fr; }
-            .container { padding: 20px; }
-            nav a { margin: 0 10px; font-size: 0.7rem; }
+            .container { padding: 20px; margin-top: 20px; }
         }
 
         .back-link {
@@ -139,6 +162,13 @@
     </style>
 </head>
 <body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mods.html">Gallery</a>
+        <a href="about.html">Our Story</a>
+        <a href="roadmap.html">Roadmaps</a>
+    </nav>
 
     <div class="container">
         <img src="logo.png" alt="ThatLoFiModding" class="logo-small">
@@ -240,7 +270,7 @@
             </div>
         </div>
 
-        <!-- Menu 5: Dev Ver 4 -->
+         <!-- Menu 5: Dev Ver 4 -->
         <div class="dropdown">
             <div class="dropdown-header">5. Development Version 4 (80%) <span>+</span></div>
             <div class="dropdown-content">
@@ -249,11 +279,57 @@
                 <p>However, we are currently facing a temporary hardware bottleneck. A critical PC component passed away, and due to volatile hardware market prices, we are on a short forced break. The project will enter the heavy ingame stress-testing phase the second our hardware hurdle is cleared. Remember: <span class="highlight">Quality Over Speed</span>! We refuse to release an untested script that could corrupt your savegames.</p>
             </div>
         </div>
+
+        <!-- TRENNLINIE ZUR NAVBAR / ROADMAP -->
+        <hr style="border: 0; border-top: 1px dashed var(--text-color); margin: 50px 0 40px 0;">
+
+        <!-- NEU: FAQ BEREICH ALS EIGENE STRUKTURIERTE BOX (ABGESETZT VON DER ROADMAP) -->
+        <div style="text-align: left; background: rgba(255, 255, 255, 0.15); border: 1px solid var(--text-color); padding: 35px; box-shadow: 8px 8px 0px var(--text-color); margin-bottom: 50px;">
+            <h2 style="margin-top: 0; text-transform: uppercase; letter-spacing: 2px; font-size: 1.3rem; border-bottom: 1px solid var(--text-color); padding-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                <span>📋</span> FREQUENTLY ASKED QUESTIONS
+            </h2>
+            
+            <div style="margin-top: 25px;">
+                <p style="font-weight: bold; margin-bottom: 5px; color: var(--accent-color);">Q: Is the mod multiplayer / dedicated server compatible?</p>
+                <p style="margin-top: 0; margin-bottom: 20px; font-size: 0.95rem; opacity: 0.9;">
+                    A: Yes. The LUA core is being optimized from day one to sync properly between clients and servers without creating heavy network load.
+                </p>
+
+                <p style="font-weight: bold; margin-bottom: 5px; color: var(--accent-color);">Q: Will it work on standard maps or only 4x maps?</p>
+                <p style="margin-top: 0; margin-bottom: 20px; font-size: 0.95rem; opacity: 0.9;">
+                    A: It works on all maps. However, it is specifically performance-optimized to run absolutely lag-free even on massive 4x maps with hundreds of swaths.
+                </p>
+
+                <p style="font-weight: bold; margin-bottom: 5px; color: var(--accent-color);">Q: Can I activate the mod on an existing savegame?</p>
+                <p style="margin-top: 0; margin-bottom: 25px; font-size: 0.95rem; opacity: 0.9;">
+                    A: We highly recommend starting a new savegame or activating it right after winter when no grass/straw is left on the fields, as the script needs to initialize the moisture baseline for new swaths.
+                </p>
+
+                <p style="font-weight: bold; margin-bottom: 5px; color: var(--accent-color);">Q: Will it conflict with other realism mods?</p>
+                <p style="margin-top: 0; margin-bottom: 0; font-size: 0.95rem; opacity: 0.9;">
+                    A: Standard base-game scripts are safely overwritten. Compatibility with third-party crop-extension mods will be tested thoroughly during the upcoming beta phase.
+                </p>
+            </div>
+        </div>
+
+        <!-- NEU: DESIGNTE HARDWARE-SUPPORT BOX
+        <div style="margin-top: 50px; padding: 30px; border: 1px dashed var(--text-color); background: rgba(139, 69, 19, 0.05); text-align: center;">
+            <h3 style="margin-top: 0; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color);">🔧 Support The Rig</h3>
+            <p style="font-size: 0.9rem; max-width: 600px; margin: 0 auto 20px auto; line-height: 1.5;">
+                As mentioned in the update, a critical hardware defect is currently slowing down our testing phase. If you want to help speed up the acquisition of replacement parts, consider throwing a loose coin into the digital tip jar. Every bit helps to get the studio fully operational again!
+            </p>
+            Ersetze '#' mit deinem Ko-fi / Patreon / PayPal Link
+            <a href="#" target="_blank" style="display: inline-block; background: var(--text-color); color: var(--bg-color); padding: 12px 30px; text-decoration: none; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--text-color); transition: 0.3s;" onmouseover="this.style.background='transparent', this.style.color='var(--text-color)'" onmouseout="this.style.background='var(--text-color)', this.style.color='var(--bg-color)'">
+                Buy the Dev a Capacitor
+            </a>
+        </div>
+        -->
         
+        <br><br>
         <a href="RFAYcomingsoon.html" class="back-link">< GO BACK</a>
         <br>
         <a href="mods.html" class="back-link">< BACK TO GALLERY</a>
-    </div>
+    </div> <!-- Hier endet der .container sauber -->
 
     <script>
         document.querySelectorAll('.dropdown-header').forEach(header => {
